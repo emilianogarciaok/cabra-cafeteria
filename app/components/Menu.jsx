@@ -14,32 +14,120 @@ const Menu = ({ onAddToCart }) => {
   ];
 
   const items = [
+    // --- CAFETERÍA ---
     {
       id: 1,
       category: "Cafetería",
       name: "Piccolo",
       price: "$ 3.700,00",
-      desc: "Espresso más leche. Taza pequeña.",
+      desc: "Ristretto corto cortado con leche sedosa en vaso de 4oz.",
       image:
-        "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=300&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=400&auto=format&fit=crop",
     },
     {
       id: 2,
       category: "Cafetería",
       name: "Cappuccino moderno",
       price: "$ 3.800,00",
-      desc: "Espresso más leche. Taza mediana.",
+      desc: "Equilibrio perfecto de espresso, leche al vapor y microespuma densa.",
       image:
-        "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=300&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=400&auto=format&fit=crop",
     },
     {
       id: 3,
       category: "Cafetería",
       name: "Latte de especialidad",
       price: "$ 4.000,00",
-      desc: "Espresso más leche. Taza grande.",
+      desc: "Doble shot de espresso con una capa generosa de leche cremosa.",
       image:
-        "https://images.unsplash.com/photo-1551030173-122fba6e00ca?q=80&w=300&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1599398054066-846f28917f38?q=80&w=400&auto=format&fit=crop",
+    },
+
+    // --- SIN CAFEÍNA ---
+    {
+      id: 4,
+      category: "Sin cafeína",
+      name: "Chai Latte",
+      price: "$ 3.900,00",
+      desc: "Infusión de té negro con cardamomo, canela y jengibre emulsionado.",
+      image:
+        "https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+      id: 5,
+      category: "Sin cafeína",
+      name: "Matcha Ceremonial",
+      price: "$ 4.500,00",
+      desc: "Té verde origen Japón batido a mano, con notas dulces y vegetales.",
+      image:
+        "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+      id: 6,
+      category: "Sin cafeína",
+      name: "Infusión del Bosque",
+      price: "$ 3.200,00",
+      desc: "Mix de arándanos, hibisco y escaramujo para un sabor frutal intenso.",
+      image:
+        "https://images.unsplash.com/photo-1576092762791-dd9e2220abd1?q=80&w=400&auto=format&fit=crop",
+    },
+
+    // --- JUGOS ---
+    {
+      id: 7,
+      category: "Jugos",
+      name: "Naranja Natural",
+      price: "$ 3.000,00",
+      desc: "Zumo recién exprimido de naranjas seleccionadas de estación.",
+      image:
+        "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+      id: 8,
+      category: "Jugos",
+      name: "Limonada con Menta",
+      price: "$ 3.200,00",
+      desc: "Limones frescos, menta del huerto y un toque de azúcar orgánica.",
+      image:
+        "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+      id: 9,
+      category: "Jugos",
+      name: "Detox Green",
+      price: "$ 3.500,00",
+      desc: "Poderosa mezcla de espinaca, manzana verde, pepino y limón.",
+      image:
+        "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=400&auto=format&fit=crop",
+    },
+
+    // --- PASTELERÍA ---
+    {
+      id: 10,
+      category: "Pastelería",
+      name: "Croissant Francés",
+      price: "$ 2.500,00",
+      desc: "Hojaldre laminado a mano con 24 horas de fermentación lenta.",
+      image:
+        "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+      id: 11,
+      category: "Pastelería",
+      name: "Roll de Canela",
+      price: "$ 2.800,00",
+      desc: "Masa brioche suave rellena de canela de Ceylán y frosting de vainilla.",
+      image:
+        "https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+      id: 12,
+      category: "Pastelería",
+      name: "Cookie de Chocolate",
+      price: "$ 2.200,00",
+      desc: "Galleta melosa con trozos de chocolate amargo y escamas de sal.",
+      image:
+        "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=400&auto=format&fit=crop",
     },
   ];
 
@@ -65,7 +153,7 @@ const Menu = ({ onAddToCart }) => {
           </span>
         </div>
 
-        {/* Categorías en Carrusel (Mobile) */}
+        {/* Categorías en Carrusel */}
         <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">
           {categories.map((cat) => (
             <button
@@ -79,7 +167,11 @@ const Menu = ({ onAddToCart }) => {
             >
               <span className="text-2xl">{cat.icon}</span>
               <span
-                className={`text-[11px] uppercase tracking-widest font-bold ${activeCategory === cat.id ? "text-stone-900" : "text-stone-400"}`}
+                className={`text-[11px] uppercase tracking-widest font-bold ${
+                  activeCategory === cat.id
+                    ? "text-stone-900"
+                    : "text-stone-400"
+                }`}
               >
                 {cat.id}
               </span>
@@ -95,7 +187,7 @@ const Menu = ({ onAddToCart }) => {
           <div className="w-10 h-[2px] bg-amber-900 mt-2 opacity-30"></div>
         </div>
 
-        {/* Lista de Productos Refinada */}
+        {/* Lista de Productos */}
         <div className="space-y-6">
           <AnimatePresence mode="wait">
             <motion.div
